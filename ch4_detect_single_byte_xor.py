@@ -1,4 +1,4 @@
-# cryptopals challenge3
+# cryptopals challenge4
 import binascii
 from operator import itemgetter
 from collections import Counter
