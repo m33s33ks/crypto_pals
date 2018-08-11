@@ -24,7 +24,7 @@ def frequency_check(message):
 	global mostly_english
 	global gkey
 	frequency = {"e": 13, "t": 9, "a": 8, "o": 7, "i": 6}
-	message_d = message.decode()
+	message_d = str(message)
 	# turn it into all lower chars
 	counter = Counter(str(message_d.lower()))
 	frequency_m = get_percentage(counter, len(message))
@@ -60,7 +60,7 @@ def get_percentage(counter, m_length):
 
 
 for one in range(97, 122):
-	frequency_check(xor('1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736', chr(one)))
+	frequency_check(xor('32042f46431d2c44607934ed180c1028136a5f2b26092e3b2c4e2930585a', chr(one)))
 
 # should sort the lists, does it but i get a type warning
 for k, v in sorted(mostly_english.items(), key=itemgetter(1)):
