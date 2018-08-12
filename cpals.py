@@ -2,8 +2,9 @@ import binascii
 from operator import itemgetter
 from collections import Counter
 
-def hex2base64(str):
-	return str.decode('hex').encode('base64')
+
+def hex2base64(string):
+	return string.decode('hex').encode('base64')
 
 
 def fixed_xor(str1, str2):
@@ -58,9 +59,11 @@ def frequency_check(messages):
 			if score < mostly_english[max(mostly_english, key=mostly_english.get)] and len(mostly_english):
 				key_to_delete = max(mostly_english, key=lambda k: mostly_english[k])
 				del mostly_english[key_to_delete]
-				mostly_english["[+] key: ord{ " + str(one) + " } or char{ " + chr(one) + " } message: " + message_d + "]"] = score
+				mostly_english[
+					"[+] key: ord{ " + str(one) + " } or char{ " + chr(one) + " } message: " + message_d + "]"] = score
 			elif score < mostly_english[max(mostly_english, key=mostly_english.get)]:
-				mostly_english["[+] key: ord{ " + str(one) + " } or char{ " + chr(one) + " } message: " + message_d + "]"] = score
+				mostly_english[
+					"[+] key: ord{ " + str(one) + " } or char{ " + chr(one) + " } message: " + message_d + "]"] = score
 
 	return sorted(mostly_english.items(), key=itemgetter(1))
 
