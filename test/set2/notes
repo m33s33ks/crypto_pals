@@ -1,0 +1,19 @@
+Challenge 10 notes
+
+encrypt cbc
+# what about the block size? apparently since it's aes it's always 16 bytes (128bits) can i use a different encryption?
+# IV = #somerandomshitz
+# 1. block up the ciphermessage
+# 2. xor the first block with the IV fixed_xor(IV, firstblock)
+# 3. encrypt the return value with teh encr_aes_ecb(fixed_xor(IV, firstblock), key)
+# 4. xor the second block of the message with the result of the teh encr_aes_ecb(fixed_xor(IV, firstblock))
+# 5 encrypt it like the first block
+# 6 repeat until last block that might be too short, send that to the padding thing before xoring
+
+decrypt cbc
+
+1: decrypt the last block
+2: xor the result with the second last encrypted block
+3: decrypt the second last block
+4: xor the result with the third last block
+at last: decrypt the last block and xor it with the IV
